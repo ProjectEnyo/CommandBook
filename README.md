@@ -1,4 +1,4 @@
-![CommandBook](http://static.sk89q.com/readme/commandbook.png)
+![CommandBook](commandbook-logo.svg)
 ==========
 
 CommandBook adds essential commands for managing your server, from teleportation commands to time changing commands.
@@ -16,9 +16,9 @@ CommandBook adds essential commands for managing your server, from teleportation
 Compiling
 ---------
 
-The project is written for Java 8 and our build process makes use of [Maven](http://maven.apache.org). Detailed compilation information [can be found on the wiki](http://wiki.sk89q.com/wiki/CommandBook/Development#Compiling).
+The project is written for Java 21 and our build process makes use of [Gradle](https://gradle.org).
 
-Dependencies are automatically handled by Maven.
+Dependencies are automatically handled by Gradle.
 
 Contributing
 ------------
@@ -31,7 +31,7 @@ Please read CONTRIBUTING.md for important guidelines to follow.
 Links
 -----
 
-* [IRC channel](http://skq.me/irc/irc.esper.net/sk89q/) (#sk89q on irc.esper.net)
-* [Issue tracker](http://youtrack.sk89q.com/issues/CMDBOOK)
+* IRC channel (#sk89q on irc.esper.net)
+* [Issue tracker](https://github.com/EngineHub/CommandBook/issues)
 * [Continuous integration](http://builds.enginehub.org)
-* [End-user documentation](http://wiki.sk89q.com/wiki/CommandBook)
+* [End-user documentation](https://web.archive.org/web/20190530032254/http://wiki.sk89q.com/wiki/CommandBook)
