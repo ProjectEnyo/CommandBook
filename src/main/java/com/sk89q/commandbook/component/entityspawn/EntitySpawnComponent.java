@@ -39,6 +39,7 @@ import org.bukkit.Material;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.*;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.util.OldEnum;
 import org.bukkit.util.Vector;
 
 import java.util.List;
@@ -52,10 +53,18 @@ public class EntitySpawnComponent extends BukkitComponent {
         registerCommands(Commands.class);
     }
 
-    private static <T extends Enum<T>> String valueList(Class<T> clazz) {
+    private static <T extends OldEnum<T>> String getOldEnumConstants(Class<T> clazz) {
+        return valueList(clazz.getEnumConstants());
+    }
+
+    private static <T extends Enum<T>> String getEnumConstants(Class<T> clazz) {
+        return valueList(clazz.getEnumConstants());
+    }
+
+    private static String valueList(Object[] constants) {
         StringBuilder res = new StringBuilder();
         boolean first = true;
-        for (Object e : clazz.getEnumConstants()) {
+        for (Object e : constants) {
             if (!first) {
                 res.append(", ");
             }
@@ -131,7 +140,7 @@ public class EntitySpawnComponent extends BukkitComponent {
                             catType = Ocelot.Type.valueOf(specialType.toUpperCase());
                         } catch (IllegalArgumentException e) {
                             throw new CommandException("Unknown cat type '" + specialType + "'. Allowed values are: "
-                                + valueList(Ocelot.Type.class));
+                                    + getEnumConstants(Ocelot.Type.class));
                         }
                         if (catType != null) {
                             ((Ocelot) creature).setCatType(catType);
@@ -193,7 +202,7 @@ public class EntitySpawnComponent extends BukkitComponent {
                             profession = Villager.Profession.valueOf(specialType.toUpperCase());
                         } catch (IllegalArgumentException e) {
                             throw new CommandException("Unknown profession '" + specialType + "'. Allowed values are: "
-                                + valueList(Villager.Profession.class));
+                                    + getOldEnumConstants(Villager.Profession.class));
                         }
                         if (profession != null) {
                             ((Villager) creature).setProfession(profession);
@@ -205,21 +214,24 @@ public class EntitySpawnComponent extends BukkitComponent {
                         Horse.Variant variant = null;
                         try {
                             color = Horse.Color.valueOf(specialType.toUpperCase());
-                        } catch (IllegalArgumentException e) {}
+                        } catch (IllegalArgumentException e) {
+                        }
                         if (color != null) {
                             ((Horse) creature).setColor(color);
                             continue;
                         }
                         try {
                             style = Horse.Style.valueOf(specialType.toUpperCase());
-                        } catch (IllegalArgumentException e) {}
+                        } catch (IllegalArgumentException e) {
+                        }
                         if (style != null) {
                             ((Horse) creature).setStyle(style);
                             continue;
                         }
                         try {
                             variant = Horse.Variant.valueOf(specialType.toUpperCase());
-                        } catch (IllegalArgumentException e) {}
+                        } catch (IllegalArgumentException e) {
+                        }
                         if (variant != null) {
                             ((Horse) creature).setVariant(variant);
                             continue;
@@ -235,7 +247,7 @@ public class EntitySpawnComponent extends BukkitComponent {
 
     public class Commands {
         @Command(aliases = {"spawnmob"}, usage = "<mob>[|rider] [count] [location]", desc = "Spawn a mob",
-            flags = "dirbt", min = 1, max = 4)
+                flags = "dirbt", min = 1, max = 4)
         @CommandPermissions({"commandbook.spawnmob"})
         public void spawnMobCmd(CommandContext args, CommandSender sender) throws CommandException {
             List<Location> locations;
