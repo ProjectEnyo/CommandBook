@@ -51,8 +51,8 @@ repositories {
         url = 'https://maven.enginehub.org/repo/'
     }
     maven {
-        name = 'Destroystokyo Repo'
-        url = 'https://repo.destroystokyo.com/repository/maven-public/'
+        name = 'papermc-repo'
+        url = 'https://repo.papermc.io/repository/maven-public/'
     }
     maven {
         name 'Packet Loss Gaming Repository'
