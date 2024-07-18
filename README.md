@@ -1,7 +1,6 @@
 <h1>
 	<img src="commandbook-logo.svg" alt="CommandBook" width="400" />
 </h1>
-==========
 
 CommandBook adds essential commands for managing your server, from teleportation commands to time changing commands.
 
