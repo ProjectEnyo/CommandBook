@@ -55,8 +55,8 @@ repositories {
         url = 'https://repo.papermc.io/repository/maven-public/'
     }
     maven {
-        name 'Packet Loss Gaming Repository'
-        url 'https://mvn.packetloss.gg/'
+        name = 'Packet Loss Gaming Repository'
+        url = 'https://mvn.packetloss.gg/'
     }
 }
 
