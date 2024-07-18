@@ -1,5 +1,5 @@
 name: CommandBook
 main: com.sk89q.commandbook.CommandBook
 version: "${internalVersion}"
-depend: [WorldEdit]
+depend: [ WorldEdit, LibComponents-Bukkit ]
 api-version: 1.21
